@@ -1,5 +1,5 @@
 <ion-view view-title="SQUAD">
-  <ion-content class="padding">
+  <ion-content>
 
     <div ng-hide="lat" class="padding" style="padding-left: 25px; padding-top: 15px; font-weight:400;">
       <h3>
@@ -19,9 +19,20 @@
       </h3>
     </div>
 
-    <button ng-show="resp.data[0].name" class="button button-block button-calm " ng-click="continueToDash()">
-      Continue
-    </button>
+    <div class="padding">
+      <div ng-show="lat" class="row">
+          <div class="col">
+            <button class="button button-block icon-left ion-home">
+              Block Button
+            </button>
+          </div>
+          <div class="col">
+            <button class="button button-block icon-left ion-home">
+              Block Button
+            </button>
+          </div>
+      </div>
+    </div>
 
   </ion-content>
 </ion-view>

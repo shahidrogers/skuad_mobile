@@ -4,6 +4,19 @@ angular.module('starter.controllers', [])
 
   $scope.data = {}
 
+  if(window.localStorage['username'] != null){
+    //if logged in already, go to categories
+    
+    //clear back history stack,
+    //prevent other page from coming back here upon back button press
+    $ionicViewService.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+    });
+
+    $state.go('getlocation');
+  }
+
   $scope.login = function(){
     console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
 
@@ -12,6 +25,9 @@ angular.module('starter.controllers', [])
       then(function(resp) {
         console.log(resp);
         if(resp.data.password == $scope.data.password){
+
+          window.localStorage['username'] = $scope.data.username;
+
           //clear back history stack,
           //prevent other page from coming back here upon back button press
           $ionicViewService.nextViewOptions({
