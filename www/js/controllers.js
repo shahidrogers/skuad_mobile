@@ -211,46 +211,25 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $http, $ionicPlatform) {
 
-  //flag for API call - success/fail
-  $scope.retrieveSuccess = false;
-
-  //initial data binding
-  $scope.location = {name: window.localStorage['favLocationName'],
-                      riskPercent:68,
-                      riskText:"Moderate risk of mosquito breeding",
-                      humidity:0,
-                      temp:0,
-                      pressure:0,
-                      lastUpdatedTime:"-",
-                      lastUpdatedDate:"-"};
+  $scope.activities = []; 
 
   var getData = function(){
     //get latest data for location from API
-    $http.get("https://infinite-dusk-89452.herokuapp.com/reports/device/" + window.localStorage['favLocation']).
+
+     $http.get("http://floating-peak-63956.herokuapp.com/activities/nearby/" + window.localStorage['category'] + '/' + window.localStorage['long'] + '/' + window.localStorage['lat']).
       then(function(resp) {
-        console.log(resp);
-        $scope.location.temp = resp.data[0].temperature;
-        $scope.location.humidity = resp.data[0].humidity;
-        $scope.location.pressure = resp.data[0].pressure;
-        //convert date string to date object
-        var date = new Date(resp.data[0].createdAt);
-        //extract data from date object
-        $scope.location.lastUpdatedTime = date.getHours() + '' + ('0'+date.getMinutes()).slice(-2);
-        $scope.location.lastUpdatedDate = date.getDate() + '/' + (date.getMonth()+1);
-
-        //update API call flag
-        $scope.retrieveSuccess = true;
-
-        //play audio effect
-        var audio = new Audio('audio/dash-loaded.wav');
-        audio.play();
+        $scope.activities = resp.data;
+        
       }, function(resp) {
-        console.log("Error retrieving data from closest device.");
+        console.log("Error retrieving data.");
       });
   };
 
   //retrieve data
   getData();
+
+  
+
 
   $scope.refresh = function(){
     getData();
