@@ -2,16 +2,16 @@
   <ion-content class="padding">
       <div class="list list-inset">
           <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="data.name">
+              <input type="text" autocapitalize="off" autocorrect="off" placeholder="Username" ng-model="data.name">
           </label>
           <label class="item item-input">
               <input type="password" placeholder="Password" ng-model="data.password">
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Age" ng-model="data.age">
+              <input type="email" placeholder="E-mail" ng-model="data.email">
           </label>
           <label class="item item-input">
-              <input type="email" placeholder="E-mail" ng-model="data.email">
+              <input type="number" placeholder="Age" ng-model="data.age">
           </label>
       </div>
       <button class="button button-block button-calm" ng-click="submit()">Proceed</button>
