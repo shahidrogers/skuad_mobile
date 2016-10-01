@@ -92,6 +92,17 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }
   })
 
+  .state('tab.history', {
+    url: '/history',
+    cache: false,
+    views: {
+      'tab-history': {
+        templateUrl: 'templates/tab-history.html',
+        controller: 'HistoryCtrl'
+      }
+    }
+  })
+
   .state('tab.profile', {
     url: '/profile',
     cache: false,

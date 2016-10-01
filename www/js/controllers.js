@@ -295,6 +295,19 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('HistoryCtrl', function($scope, $http, $state, $window, $ionicHistory) {
+  $scope.history = {};
+
+  $http.get("http://floating-peak-63956.herokuapp.com/participants/byUser/" + window.localStorage['username']).
+    then(function(resp) {
+      $scope.history = resp.data;
+      console.log(resp.data);
+      
+    }, function(resp) {
+      console.log("Error retrieving data.");
+    });
+})
+
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
   $scope.favLocation = {id: window.localStorage['favLocation'],
                         name: window.localStorage['favLocationName']};
