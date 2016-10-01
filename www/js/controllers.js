@@ -250,6 +250,6 @@ angular.module('starter.controllers', [])
     $window.localStorage.clear();
     $ionicHistory.clearCache();
     $ionicHistory.clearHistory();
-    $state.go('intro');
+    $state.go('login');
   };
 });
