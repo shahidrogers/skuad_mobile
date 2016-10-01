@@ -202,6 +202,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   background-color: #fff;
   margin: auto;
   margin-bottom: 10px;
+  border-color: transparent;
 }
 .activity-card .item-content{
   display: block;
@@ -211,11 +212,11 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   border-color: #eee;
 }
 .card-date {
-  background-color: #EF4E3A;
+  background-color: #444444;
   float: left;
   width: 20%;
   text-align: center;
-  padding: 10px 0;
+  padding: 10px 0 4px;
 }
 .card-date h4:first-child{
   font-size: 32px;
@@ -257,6 +258,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   font-size: 24px;
   line-height: normal;
   margin: 10px 0 2px;
+  color: #333;
 }
 .activity-details .badge {
   border: 1px #66CC33 solid;
@@ -265,7 +267,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   display: inline-block;
   font-size: 12px;
   margin: 0 0 6px;
-  padding: 2px 14px;
+  padding: 3px 15px 2px;
   position: initial;
   text-transform: uppercase;
 }
@@ -279,6 +281,8 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
 }
 .activity-details .activity-location i{
   margin-left: 4px;
+  bottom: -1px;
+  position: relative;
 }
 .activity-details .activity-time i{
   margin-left: 0.5px;
@@ -299,7 +303,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
 }
 .activity-list .item-content{
   padding: 0px;
-  box-shadow: 1px 1px 2px #333;
+  box-shadow: 2px -1px 5px #666;
 }
 /*----- End -----*/
 
