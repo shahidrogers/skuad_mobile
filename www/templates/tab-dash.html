@@ -4,39 +4,26 @@
     <button class="button icon ion-refresh" ng-click="refresh()"></button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="box-left-mini">
-      <div class="front">
-        <div class="activity-list">
-          <ion-item class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/activity/{{activity._id}}" item-height="150px">
-            <div class="card-date">
-              <h4>{{ activity.bookingAt | date:'dd MMM' }}</h4>
-            </div>
-            <div class="card-content">
-              <div class="activity-content">
-                <div class="activity-venue-img">
-                  <img src="{{activity.imgURL}}" />
-                </div>
-                <div class="activity-details">
-                  <h3>{{ activity.name }}</h3>
-                  <div class="badge">{{ activity.difficulty }}</div>
-                  <p class="activity-location"><i class="icon ion-location"></i>{{ activity.locName }}</p>
-                  <p class="activity-time"><i class="icon ion-android-time"></i>{{ activity.bookingAt | date: 'h:mm a' }}</p>
-                </div>
-              </div>
-              <hr>
-              <div class="activity-members">
-                <!-- <div class="member-card" collection-repeat="participant in participants" ng-click ="list_click()">
-                </div> -->
-                <div class="join-team">
-                  <i class="icon ion-plus"></i>
-                </div>
-              </div>
-            </div>
-          </ion-item>
+    <div class="activity-list">
+      <ion-item class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/activity/{{activity._id}}">
+        <div class="card-date">
+          <h4>{{ activity.bookingAt | date:'dd' }}</h4>
+          <h4>{{ activity.bookingAt | date:'MMM' }}</h4>
+          <h5>{{ activity.bookingAt | date:'HHMM' }}</h4>
         </div>
-      </div>
-      <div class="behind">
-      </div>
+        <div class="card-content">
+          <div class="activity-content">
+            <div class="activity-venue">
+              <div class="activity-venue-img" style="background-image: url({{ activity.imgURL }})"></div>
+            </div>
+            <div class="activity-details">
+              <h3>{{ activity.name }}</h3>
+              <div class="badge">{{ activity.difficulty }}</div>
+              <p class="activity-location"><i class="icon ion-location"></i>{{ activity.locName }}</p>
+            </div>
+          </div>
+        </div>
+      </ion-item>
     </div>
   </ion-content>
 </ion-view>
