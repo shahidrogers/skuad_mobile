@@ -1,4 +1,6 @@
 /* Empty. Add your own CSS if you like */
+
+/*----- Category List -----*/
 .btn-category{
   border-radius: 3px;
   border: 2px solid #333;
@@ -29,6 +31,101 @@
 .category-grid{
   margin-top: 15px;
 }
+/*----- End -----*/
+
+/*----- Login -----*/
+.login-logo{
+  margin-top: 2%;
+}
+.login-logo img{
+  margin: auto;
+  width: 100%;
+}
+.login-container input{
+  border: 1px #aaa solid;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 25px 20px;
+  width: 90%;
+}
+.login-container button{
+  border-radius: 3px;
+  margin: auto;
+  margin-bottom: 10px;
+  width: 90%;
+}
+/*----- End -----*/
+
+/*----- Activity Card -----*/
+.activity-card {
+  background-color: #fff;
+/*  margin-bottom: 10px;*/
+}
+.activity-card hr{
+  border-color: #aaa;
+}
+.card-date {
+  float: left;
+  width: 10%;
+}
+.card-date h4 {
+  font-size: 16px;
+  -webkit-transform: rotateX(270deg);
+  transform: rotateX(270deg)
+}
+.card-content {
+  float: left;
+  padding: 5px;
+  width: 90%;
+}
+.activity-venue-img{
+  float: left;
+  width: 45%;
+}
+.activity-venue-img img {
+  height: auto;
+  width: 100%;
+}
+.activity-details {
+  float: left;
+  padding-left: 10px;
+  width: 55%;
+}
+.activity-details h3 {
+  font-size: 16px;
+  line-height: normal;
+  margin-bottom: 5px;
+}
+.activity-details .badge {
+  border: 1px #66CC33 solid;
+  border-radius: 3px;
+  color: #66CC33;
+  font-size: 8px;
+  margin: 0 0 5px;
+  padding: 0px 10px;
+  text-transform: uppercase;
+}
+.activity-details p{
+  margin: 0px;
+}
+.activity-location p,
+.activity-time p {
+  color: #aaa;
+  font-size: 14px;
+}
+.activity-location i,
+.activity-time i {
+  color: #aaa;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.activity-members .join-team i{
+  color: #EF4E3A;
+  font-size: 14px;
+}
+/*----- End -----*/
 
 .capitalize {
    text-transform: capitalize;
