@@ -1,28 +1,40 @@
 <ion-view view-title="Activities Near You">
   <ion-content>
-
-  <div class="box-left-mini">
-    <div class="front">
-      <div>
-        <ion-item class="item item-avatar" collection-repeat="activity in activities" 
-          href="#/tab/dash/{{activity._id}}">
-          <img src="avatar.jpg">
-          <h2>{{activity.name}}</h2>
-          <span class="badge badge-dark capitalize">{{activity.category}}</span>
-          <p>{{activity.description}}</p>
-        </ion-item>
+    <div class="box-left-mini">
+      <div class="front">
+        <div class="activity-list">
+          <div class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/{{activity._id}}">
+            <div class="card-date">
+              <h4>{{ activity.booking_at | date: 'dd MMM' }}</h4>
+            </div>
+            <div class="card-content">
+              <div class="activity-content">
+                <div class="activity-venue-img">
+                  <img src="../design/images/activity-location.jpg" />
+                </div>
+                <div class="activity-details">
+                  <h3>{{ activity.name }}</h3>
+                  <div class="badge">{{ activity.difficulty }}</div>
+                  <p class="activity-location"><i class="icon ion-location"></i>{{ activity.loc.coordinates }}</p>
+                  <p class="activity-time"><i class="icon ion-android-time"></i>{{ activity.booking_at | date: 'h:mm a' : +08:00 }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="activity-members">
+                <!-- <div class="member-card" collection-repeat="participant in participants" ng-click ="list_click()">
+                </div> -->
+                <div class="join-team">
+                  <i class="icon ion-plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="behind">
+        <div id="map" data-tap-disabled="true"></div>
       </div>
     </div>
-    <div class="behind">
-      <div id="map" data-tap-disabled="true"></div>
-    </div>
-  </div>
-
-<!--       {{activity.name}}
-      {{activity.description}}
-      {{activity.category}}
-      {{activity.difficulty}}
-      {{activity.createdBy}} -->
   </ion-content>
 </ion-view>
 
