@@ -311,8 +311,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
-  $scope.favLocation = {id: window.localStorage['favLocation'],
-                        name: window.localStorage['favLocationName']};
+  $scope.data = {username: window.localStorage['username']};
 
   $scope.changeFavLocation = function (){
     $state.go('selectfavlocation');
