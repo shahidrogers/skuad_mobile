@@ -49,13 +49,17 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       controller: 'LoginCtrl'
   }) 
 
+  .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller: 'RegisterCtrl'
+  }) 
+
   .state('intro', {
       url: '/intro',
       templateUrl: 'templates/intro.html',
       controller: 'IntroCtrl'
   }) 
-
-
 
   .state('selectfavlocation', {
       url: '/selectfavlocation',

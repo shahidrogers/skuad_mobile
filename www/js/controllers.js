@@ -1,15 +1,33 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $state) {
+.controller('LoginCtrl', function($scope, $state, $ionicViewService) {
 
   $scope.data = {}
 
   $scope.login = function(){
-    console.log("LOGIN user: " + $scope.username + " - PW: " + $scope.password);
+    console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
   };
 
   $scope.register = function(){
+
+    //clear back history stack,
+    //prevent other page from coming back here upon back button press
+    $ionicViewService.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+    });
+
     $state.go('register');
+  };
+  
+})
+
+.controller('RegisterCtrl', function($scope, $state) {
+
+  $scope.data = {}
+
+  $scope.submit = function(){
+    //$state.go('register');
   };
   
 })
