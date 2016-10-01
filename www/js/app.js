@@ -82,12 +82,34 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   })
 
   .state('tab.activity', {
-    url: '/dash/:activityId',
+    url: '/dash/activity/:activityId',
     cache: false,
     views: {
       'tab-dash': {
         templateUrl: 'templates/activity.html',
         controller: 'ActivityCtrl'
+      }
+    }
+  })
+
+  .state('tab.newactivity', {
+    url: '/dash/newactivity',
+    cache: false,
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/newactivity.html',
+        controller: 'NewActivityCtrl'
+      }
+    }
+  })
+
+  .state('tab.history', {
+    url: '/history',
+    cache: false,
+    views: {
+      'tab-history': {
+        templateUrl: 'templates/tab-history.html',
+        controller: 'HistoryCtrl'
       }
     }
   })

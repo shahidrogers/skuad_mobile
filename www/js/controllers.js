@@ -188,7 +188,9 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('DashCtrl', function($scope, $http, $ionicPlatform) {
+.controller('DashCtrl', function($scope, $state, $http, $ionicPlatform) {
+
+  $scope.category = window.localStorage['category'].toUpperCase();
 
   var latLng = new google.maps.LatLng(window.localStorage['lat'], window.localStorage['long']);
  
@@ -222,6 +224,10 @@ angular.module('starter.controllers', [])
 
   $scope.refresh = function(){
     getData();
+  };
+
+  $scope.createNewActivity = function(){
+    $state.go('tab.newactivity');
   };
 })
 
@@ -358,9 +364,29 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('HistoryCtrl', function($scope, $http, $state, $window, $ionicHistory) {
+  $scope.history = {};
+
+  $http.get("http://floating-peak-63956.herokuapp.com/participants/byUser/" + window.localStorage['username']).
+    then(function(resp) {
+      if(resp.data != []){
+        $scope.history = resp.data;
+      }
+      console.log(resp.data);
+      
+    }, function(resp) {
+      console.log("Error retrieving data.");
+    });
+})
+
+.controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $http, $state, $window, $ionicHistory) {
+  $scope.data = {};
+
+
+})
+
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
-  $scope.favLocation = {id: window.localStorage['favLocation'],
-                        name: window.localStorage['favLocationName']};
+  $scope.data = {username: window.localStorage['username']};
 
   $scope.changeFavLocation = function (){
     $state.go('selectfavlocation');
