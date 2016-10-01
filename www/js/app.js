@@ -55,12 +55,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       controller: 'RegisterCtrl'
   }) 
 
-  .state('intro', {
-      url: '/intro',
-      templateUrl: 'templates/intro.html',
-      controller: 'IntroCtrl'
-  }) 
-
   .state('getlocation', {
       url: '/getlocation',
       templateUrl: 'templates/getlocation.html',
@@ -96,13 +90,13 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       }
     })
 
-  .state('tab.settings', {
-    url: '/settings',
+  .state('tab.profile', {
+    url: '/profile',
     cache: false,
     views: {
-      'tab-settings': {
-        templateUrl: 'templates/tab-settings.html',
-        controller: 'SettingsCtrl'
+      'tab-profile': {
+        templateUrl: 'templates/tab-profile.html',
+        controller: 'ProfileCtrl'
       }
     }
   });

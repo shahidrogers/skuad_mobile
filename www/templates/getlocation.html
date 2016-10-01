@@ -9,16 +9,16 @@
       <br><br>
     </div>
 
-    <div ng-show="lat" class="padding" style="padding-left: 25px; padding-top: 15px; font-weight:400;">
-      <h3>
-        Pick your poison
-      </h3>
-      <p>Choose a category and find activities related to it nearby.</p>
-    </div>
-
     <center>
       <ion-spinner ng-hide="lat" icon="lines"></ion-spinner>
     </center>
+
+    <div ng-show="lat" class="padding" style="padding-left: 25px; padding-top: 20px; font-weight:400;">
+      <h3>
+        Welcome, @{{username}}!
+      </h3>
+      <p>Choose a category and find nearby activities.</p>
+    </div>
 
     <div ng-show="lat" class="category-grid">
       <div class="row">
