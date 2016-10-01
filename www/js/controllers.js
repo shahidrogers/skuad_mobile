@@ -229,6 +229,10 @@ angular.module('starter.controllers', [])
   
   console.log($stateParams.activityId);
 
+  $scope.comments = null;
+  $scope.data = {};
+
+  //get activity details
   $http.get("http://floating-peak-63956.herokuapp.com/activities/" + $stateParams.activityId).
       then(function(resp) {
         $scope.activity = resp.data;
@@ -237,6 +241,57 @@ angular.module('starter.controllers', [])
       }, function(resp) {
         console.log("Error retrieving data.");
       });
+
+  //get comments
+  var loadComments = function(){
+    $http.get("http://floating-peak-63956.herokuapp.com/comments/" + $stateParams.activityId).
+      then(function(resp) {
+        if(resp.data.length != 0){
+          $scope.comments = resp.data;
+        }
+        console.log(resp.data);
+        
+      }, function(resp) {
+        console.log("Error retrieving data.");
+      });
+    }
+
+  loadComments();
+
+  $scope.submitComment = function(){
+    
+    var postObject = new Object();
+    postObject.userId = window.localStorage['username'];
+    postObject.activityId = $stateParams.activityId;
+    postObject.comment = $scope.data.text;
+
+    console.log(postObject);
+
+    var req = {
+      method: 'POST',
+      url: 'http://floating-peak-63956.herokuapp.com/comments',
+      data: postObject
+    };
+
+    $http(req).success(function(resp) {
+      console.log('Success', resp);
+      // resp.data contains the result
+      /*var alertPopup = $ionicPopup.alert({
+        title: 'Request submitted',
+        template: resp
+      });*/
+
+      //reload comments
+      loadComments();
+
+    }).error(function(err) {
+      console.error('ERROR', err);
+      var alertPopup = $ionicPopup.alert({
+        title: 'Registration failed!',
+        template: err.error_message
+      });
+    })
+  };
 
 })
 
