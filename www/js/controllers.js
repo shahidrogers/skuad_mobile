@@ -132,37 +132,23 @@ angular.module('starter.controllers', [])
   $scope.long = null;
   $scope.resp = null;
 
-  var retrieveClosestDevice = function(longitude, latitude){
-    $http.get("http://infinite-dusk-89452.herokuapp.com/devices/nearby/" + longitude + "/" + latitude).
-      then(function(response) {
-        $scope.resp = response;
-
-        window.localStorage['favLocation'] = $scope.resp.data[0]._id;
-        window.localStorage['favLocationName'] = $scope.resp.data[0].name;
-
-      }, function(response) {
-        console.log("Error retrieving closest device.");
-      });
-  }
-
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $cordovaGeolocation
   .getCurrentPosition(posOptions)
   .then(function (position) {
-    $scope.lat  = position.coords.latitude
-    $scope.long = position.coords.longitude
-    console.log($scope.lat + '   ' + $scope.long + ' - location retrieved!')
-    retrieveClosestDevice($scope.long, $scope.lat);
+    $scope.lat  = position.coords.latitude;
+    $scope.long = position.coords.longitude;
+    //print to console
+    console.log($scope.lat + '   ' + $scope.long + ' - location retrieved!');
+    //save to local storage
+    window.localStorage['lat'] = position.coords.latitude;
+    window.localStorage['long'] = position.coords.longitude;
+
   }, function(err) {
-    console.log(err)
+    console.log(err);
   });
 
   $scope.continueToDash = function (){
-
-    //temporary - assign location into localStorage
-    //store fav location id upon selection
-    window.localStorage['favLocation'] = $scope.resp.data[0]._id;
-    window.localStorage['favLocationName'] = $scope.resp.data[0].name;
 
     //clear back history stack,
     //prevent other page from coming back here upon back button press
