@@ -1,7 +1,7 @@
 <ion-view view-title="Activity" class="bar-positive">
   <ion-content class="activity-page">
   	<div class="activity-banner">
-  		<img src="{{ activity.imgURL }}">
+  		<img src="{{ activity.imgURL }}" style="box-shadow: 1px 2px 3px #333;">
   	</div>
   	<div class="activity-category">
   		<div class="activity-category-icon">
@@ -14,11 +14,11 @@
 		  <p class="activity-host" style="vertical-align: middle; margin-bottom: 0px;">Created by: <span style="color:#4a87ee;">@{{ activity.createdBy }}</span></p>
 		  <p class="activity-desc" style="margin-top: 10px;">{{ activity.description }}</p>
 		</div>
-		<button class="button button-full button-assertive join-btn" ng-click="joinActivity()" ng-hide="isJoined==true" ng-show="isJoined==false">
+		<button class="button button-block button-assertive join-btn" ng-click="joinActivity()" style="width: 90%; margin: inherit auto;" ng-hide="isJoined==true" ng-show="isJoined==false">
 		  Join Activity
 		</button>
 
-		<button class="button button-full button-assertive join-btn" ng-click="unjoinActivity()" ng-hide="isJoined==false" ng-show="isJoined==true">
+		<button class="button button-block button-assertive join-btn" style="width: 90%; margin-bottom: 30px; margin-left: auto; margin-right: auto;" ng-click="unjoinActivity()" ng-hide="isJoined==false" ng-show="isJoined==true">
 		  Joined!
 		</button>
     <div class="list comment-list" ng-show="comments">
@@ -40,7 +40,7 @@
 		  </a>
 		</div>
 
-		<div class="item item-input-inset">
+		<div class="item item-input-inset" style="margin-bottom: 50px;">
 	    <label class="item-input-wrapper">
 	      <input type="text" placeholder="Comment" ng-model="data.text">
 	    </label>
