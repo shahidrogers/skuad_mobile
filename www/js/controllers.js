@@ -384,6 +384,10 @@ angular.module('starter.controllers', [])
 
 .controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $ionicPopup, $http, $state, $window, $ionicHistory) {
   $scope.data = {};
+  $scope.categories = ["Running", "Cycling", "Basketball", "Football"];
+  $scope.data.category = $scope.categories[0];
+  $scope.levels = ["Beginner", "Intermediate", "Professional"];
+  $scope.data.level = $scope.levels[0];
 
   $scope.submit = function(){
     var postObject = new Object();
@@ -410,6 +414,7 @@ angular.module('starter.controllers', [])
     $http(req).success(function(resp) {
       console.log('Success', resp);
       // resp.data contains the result
+      $ionicHistory.goBack();
 
     }).error(function(err) {
       console.error('ERROR', err);

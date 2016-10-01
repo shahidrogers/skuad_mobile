@@ -1,7 +1,7 @@
 <ion-view view-title="Activity History">
   <ion-content>
     	<div class="list" ng-show ="list">
-		  <a class="item" collection-repeat="list in list">
+		  <a class="item" collection-repeat="list in list" href="#/tab/dash/activity/{{list._id}}">
 		    {{list.name}}
 		  </a>
 	</div>
