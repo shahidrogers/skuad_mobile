@@ -1,1 +1,24 @@
 /* Empty. Add your own CSS if you like */
+.btn-category{
+  border-radius: 3px;
+  border: 2px solid #333;
+  background-color: transparent;
+  padding: 30px 10px;
+  height: 120px;
+}
+.btn-category p{
+  line-height: normal;
+  margin-bottom: 0px;
+  font-size: 16px;
+  color: #333;
+}
+.btn-category img{
+  height: 30px;
+  width: auto;
+  display: block;
+  margin: 6px auto;
+}
+.btn-category i,
+.btn-category i:before{
+  font-size: 36px !important;
+}
