@@ -353,13 +353,26 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HistoryCtrl', function($scope, $http, $state, $window, $ionicHistory) {
-  $scope.history = {};
+  //$scope.history = {};
   $scope.list = [];
 
   $http.get("http://floating-peak-63956.herokuapp.com/participants/byUser/" + window.localStorage['username']).
     then(function(resp) {
       if(resp.data != []){
         $scope.history = resp.data;
+
+        angular.forEach($scope.history, function(value,key){
+          $http.get("http://floating-peak-63956.herokuapp.com/activities/" + value.activityId).
+          then(function(resp) {
+            if(resp.data.length != 0){
+              $scope.list.push(resp.data);
+            }
+            console.log(resp.data);
+            
+          }, function(resp) {
+            console.log("Error retrieving data.");
+          });
+        });
       }
       console.log(resp.data);
       
@@ -379,7 +392,7 @@ angular.module('starter.controllers', [])
     postObject.category = $scope.data.category.toLowerCase();
     postObject.difficulty = $scope.data.level;
     postObject.createdBy = window.localStorage['username'];
-    postObject.bookingAt = new Date();
+    postObject.bookingAt = new Date(new Date().getTime()+(24*60*60*1000));
     postObject.imgURL = 'http://static.asiawebdirect.com/m/kl/portals/kuala-lumpur-ws/homepage/kl-top10s/10-attraction-subang-jaya/allParagraphs/010/top10Set/04/image/800-subang-ria-park.jpg';
     postObject.loc = {
       coordinates: [101.5851192, 3.0567333],
