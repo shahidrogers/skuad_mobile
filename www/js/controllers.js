@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $state, $ionicViewService) {
+.controller('LoginCtrl', function($scope, $state) {
 
   $scope.data = {}
 
@@ -9,25 +9,56 @@ angular.module('starter.controllers', [])
   };
 
   $scope.register = function(){
-
-    //clear back history stack,
-    //prevent other page from coming back here upon back button press
-    $ionicViewService.nextViewOptions({
-        disableAnimate: true,
-        disableBack: true
-    });
-
     $state.go('register');
   };
   
 })
 
-.controller('RegisterCtrl', function($scope, $state) {
+.controller('RegisterCtrl', function($scope, $state, $http, $ionicPopup, $ionicViewService) {
 
   $scope.data = {}
 
   $scope.submit = function(){
-    //$state.go('register');
+    
+    var postObject = new Object();
+    postObject.name = $scope.data.name;
+    postObject.age = $scope.data.age;
+    postObject.loc = {};
+    postObject.email = $scope.data.email;
+    postObject.password = $scope.data.password;
+
+    console.log(postObject);
+
+    var req = {
+      method: 'POST',
+      url: 'http://floating-peak-63956.herokuapp.com/users',
+      data: postObject
+    };
+
+    $http(req).success(function(resp) {
+      console.log('Success', resp);
+      // resp.data contains the result
+      /*var alertPopup = $ionicPopup.alert({
+        title: 'Request submitted',
+        template: resp
+      });*/
+
+      //clear back history stack,
+      //prevent other page from coming back here upon back button press
+      $ionicViewService.nextViewOptions({
+          disableAnimate: true,
+          disableBack: true
+      });
+
+      $state.go('register');
+
+    }).error(function(err) {
+      console.error('ERROR', err);
+      var alertPopup = $ionicPopup.alert({
+        title: 'Registration failed!',
+        template: err.error_message
+      });
+    })
   };
   
 })
@@ -100,29 +131,6 @@ angular.module('starter.controllers', [])
     });
 
     //continue to select fav location screen
-    $state.go('tab.dash');
-  };
-})
-
-.controller('SelectFavLocationCtrl', function($scope, $state, $ionicViewService) {
-
-  //when a location is selected
-  $scope.select = function (id){
-    //show selected id in console - testing purposes
-    console.log(id);
-
-    //store fav location id upon selection
-    window.localStorage['favLocation'] = id;
-    window.localStorage['favLocationName'] = "Cyber " + id;
-
-    //clear back history stack,
-    //prevent other page from coming back here upon back button press
-    $ionicViewService.nextViewOptions({
-        disableAnimate: true,
-        disableBack: true
-    });
-
-    //change screen to dashboard
     $state.go('tab.dash');
   };
 })

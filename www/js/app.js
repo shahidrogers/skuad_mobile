@@ -61,12 +61,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       controller: 'IntroCtrl'
   }) 
 
-  .state('selectfavlocation', {
-      url: '/selectfavlocation',
-      templateUrl: 'templates/selectfavlocation.html',
-      controller: 'SelectFavLocationCtrl'
-  }) 
-
   .state('getlocation', {
       url: '/getlocation',
       templateUrl: 'templates/getlocation.html',
