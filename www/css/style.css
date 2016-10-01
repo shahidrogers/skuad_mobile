@@ -22,3 +22,10 @@
 .btn-category i:before{
   font-size: 36px !important;
 }
+.category-grid .btn-category{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.category-grid{
+  margin-top: 15px;
+}
