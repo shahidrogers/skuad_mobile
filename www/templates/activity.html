@@ -1,0 +1,26 @@
+<ion-view view-title="Activity">
+  <ion-content class="padding">
+  <div class="padding-left padding-top">
+	<h2>{{news.title}}</h2>
+	<h5>News ID: {{news.id}}</h5>
+</div>
+	<div class="list">
+	 	<div class="item item-divider">
+	     Details
+	  	</div>
+	  	<div class="item item-text-wrap">
+	    	<p ng-bind-html="news.details | linky | hrefToJS"></p>
+	  	</div>
+
+	  	<div class="item item-image">
+	   	 
+	   	 <img src="{{news.locationpic}}" width="100%"/>
+	  	</div>
+	</div>
+
+	<br>
+	<br>
+    
+  </ion-content>
+
+</ion-view>

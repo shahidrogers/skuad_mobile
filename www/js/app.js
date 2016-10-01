@@ -72,6 +72,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
 
   .state('tab.dash', {
     url: '/dash',
+    abstract: true,
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
