@@ -1,27 +1,65 @@
 <ion-view view-title="New Activity">
   <ion-content>
 
-	<button class="button button-full button-dark">
-	  Join Activity
-	</button>
-
-    <div class="list" ng-show="comments">
-		  <div class="item item-divider">
-		    Comments
-		  </div>
-		  <a class="item" collection-repeat="comment in comments">
-		    {{comment.comment}}
-		  </a>
+  	<div class="list">
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Activity Name</span>
+	    <input type="text" placeholder="...">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">Description</span>
+	    <textarea placeholder="..."></textarea>
+	  </label>
+	  
 	</div>
 
-	<div class="item item-input-inset">
-	    <label class="item-input-wrapper">
-	      <input type="text" placeholder="Comment" ng-model="data.text">
-	    </label>
-	    <button class="button button-small" ng-click="submitComment()">
-	      Submit
-	    </button>
+	<div class="list">
+
+	  <label class="item item-input item-select">
+	    <div class="input-label">
+	      Category
+	    </div>
+	    <select>
+	      <option selected>Cycling</option>
+	      <option>Running</option>
+	      <option>Basketball</option>
+	      <option>Football</option>
+	    </select>
+	  </label>
+
+	  <label class="item item-input item-select">
+	    <div class="input-label">
+	      Difficulty
+	    </div>
+	    <select>
+	      <option selected>Beginner</option>
+	      <option>Intermediate</option>
+	      <option>Professional</option>
+	    </select>
+	  </label>
+
+	</div>
+
+	<div class="row">
+	  <div class="col">
+	  	<button class="button button-block button-stable" ng-click="showDatePicker()">
+	  		Pick date/time
+		</button>
+		</div>
+	  <div class="col">
+	  	<button class="button button-block button-stable" ng-click="showDatePicker()">
+		  Pick location
+		</button>
 	  </div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<button class="button button-block button-dark">
+			  Create activity
+			</button>
+		</div>
+	</div>
 
 	<br>
 	<br>

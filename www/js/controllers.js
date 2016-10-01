@@ -188,7 +188,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('DashCtrl', function($scope, $http, $ionicPlatform) {
+.controller('DashCtrl', function($scope, $state, $http, $ionicPlatform) {
 
   $scope.category = window.localStorage['category'].toUpperCase();
 
@@ -224,6 +224,10 @@ angular.module('starter.controllers', [])
 
   $scope.refresh = function(){
     getData();
+  };
+
+  $scope.createNewActivity = function(){
+    $state.go('tab.newactivity');
   };
 })
 
@@ -310,6 +314,12 @@ angular.module('starter.controllers', [])
     }, function(resp) {
       console.log("Error retrieving data.");
     });
+})
+
+.controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $http, $state, $window, $ionicHistory) {
+  $scope.data = {};
+
+
 })
 
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
