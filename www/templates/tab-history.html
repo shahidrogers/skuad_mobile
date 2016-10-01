@@ -1,8 +1,20 @@
 <ion-view view-title="Activity History">
   <ion-content>
     	<div class="list" ng-show ="list">
-		  <a class="item" collection-repeat="list in list" href="#/tab/dash/activity/{{list._id}}">
-		    {{list.name}}
+		  <a class="item" style="text-align: center; padding: 10px 35px;" collection-repeat="list in list" href="#/tab/dash/activity/{{list._id}}">
+        <div style="width: 20%; float: left;">
+          <img style="width: 80%; display: block; margin: auto;" src="img/jogging.png" />
+          <p>{{ list.category }}</p>
+        </div>
+        <div style="text-align: left; width: 80%; float: left; padding: 0px 15px;">
+          <h3 style="font-size: 24px; margin-bottom: 0px;">{{ list.name }}</h3>
+          <div class="badge difficulty-badge" style="margin-bottom: 2px;">{{ list.difficulty }}</div>
+          <p style="color: #aaa; font-size: 14px;">
+            <i class="icon ion-android-calendar" style="color: #aaa; font-size: 15px; margin-right: 5px;"></i>
+            {{ list.bookingAt | date: 'dd MMM yyyy   ' }}
+            <i class="icon ion-android-time" style="color: #aaa; font-size: 15px; margin: 0px 5px;"></i>
+            {{ list.bookingAt | date: 'h:mm a' }}</p>
+        </div>
 		  </a>
 	</div>
   </ion-content>

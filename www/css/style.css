@@ -321,13 +321,15 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   display: inline-block;
   right: 5%;
   width: 20%;
+  text-align: center;
   bottom: -20px;
   border-radius: 100px;
   box-shadow: 1px 2px 1px #aaa;
 }
 .activity-page .activity-category-icon img{
-  margin: 15% 15%;
-  width: 60%;
+  margin: 21%;
+  margin-left: 10px;
+  width: 50%;
 }
 .activity-page .activity-content{
   width: 90%;
@@ -344,10 +346,27 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   color: #66CC33;
   font-size: 16px;
   text-transform: uppercase;
-  padding: 5px 15px;
+  padding: 7px 15px 5px;
   display: inline-block;
-  margin-left: 5px;
+  vertical-align: middle;
+  margin-left: 0px;
+  margin-right: 10px;
 }
+
+.badge.difficulty-badge{
+  border: 1px #66CC33 solid;
+  border-radius: 3px;
+  color: #66CC33;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 5px 15px 3px;
+  display: inline-block;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  margin-right: 10px;
+}
+
 .activity-page .activity-content .activity-desc{
   color: #333;
   font-size: 16px;
@@ -399,6 +418,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Avenir Next LT Pro Demi' !important;
+  color: #333;
 }
 p, body, div, input, textarea, span, label{
   font-family: 'Avenir Next LT Pro Regular' !important;
