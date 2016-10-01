@@ -211,19 +211,6 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $http, $ionicPlatform) {
 
-  //flag for API call - success/fail
-  $scope.retrieveSuccess = false;
-
-  //initial data binding
-  $scope.location = {name: window.localStorage['favLocationName'],
-                      riskPercent:68,
-                      riskText:"Moderate risk of mosquito breeding",
-                      humidity:0,
-                      temp:0,
-                      pressure:0,
-                      lastUpdatedTime:"-",
-                      lastUpdatedDate:"-"};
-
   var getData = function(){
     //get latest data for location from API
     $http.get("https://infinite-dusk-89452.herokuapp.com/reports/device/" + window.localStorage['favLocation']).
@@ -241,35 +228,17 @@ angular.module('starter.controllers', [])
         //update API call flag
         $scope.retrieveSuccess = true;
 
-        //play audio effect
-        var audio = new Audio('audio/dash-loaded.wav');
-        audio.play();
       }, function(resp) {
-        console.log("Error retrieving data from closest device.");
+        console.log("Error retrieving data from API.");
       });
   };
 
   //retrieve data
   getData();
 
-  $scope.refresh = function(){
-    getData();
-  };
 })
 
-.controller('NearbyLocationsCtrl', function($scope, Locations) {
-  //return all locations
-  $scope.locations = Locations.all();
-
-  console.log('no of locations: ' + $scope.locations.length);
-
-  $scope.playPresenceSound = function(){
-    var audio = new Audio('audio/plink.wav');
-    audio.play();
-  };
-})
-
-.controller('SettingsCtrl', function($scope, $state, $window, $ionicHistory) {
+.controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
   $scope.favLocation = {id: window.localStorage['favLocation'],
                         name: window.localStorage['favLocationName']};
 
