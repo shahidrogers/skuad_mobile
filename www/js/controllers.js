@@ -21,12 +21,12 @@ angular.module('starter.controllers', [])
     console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
 
     //get latest data for location from API
-    $http.get('http://floating-peak-63956.herokuapp.com/users/' + $scope.data.username).
+    $http.get('http://floating-peak-63956.herokuapp.com/users/' + $scope.data.username.toLowerCase()).
       then(function(resp) {
         console.log(resp);
         if(resp.data.password == $scope.data.password){
 
-          window.localStorage['username'] = $scope.data.username;
+          window.localStorage['username'] = $scope.data.username.toLowerCase();
 
           //clear back history stack,
           //prevent other page from coming back here upon back button press
@@ -104,33 +104,12 @@ angular.module('starter.controllers', [])
   
 })
 
-
-.controller('IntroCtrl', function($scope, $state) {
-
-  //if fav location has already been selected,
-  if(window.localStorage['favLocation'] != null){
-    //go to dashboard immediately
-    $state.go('tab.dash');
-  }
-
-  //go to select location list
-  /*$scope.continue = function (){
-    //continue to select fav location screen
-    $state.go('selectfavlocation');
-  };*/
-
-  //go to get location screen
-  $scope.continue = function (){
-    //continue to select fav location screen
-    $state.go('getlocation');
-  };
-})
-
 .controller('GetLocationCtrl', function($scope, $http, $cordovaGeolocation, $state, $ionicViewService) {
 
   $scope.lat = null;
   $scope.long = null;
   $scope.resp = null;
+  $scope.username = window.localStorage['username'];
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $cordovaGeolocation
