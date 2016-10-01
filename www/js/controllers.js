@@ -231,12 +231,31 @@ angular.module('starter.controllers', [])
 
   $scope.comments = null;
   $scope.data = {};
+  $scope.isJoined = false;
+  
 
   //get activity details
   $http.get("http://floating-peak-63956.herokuapp.com/activities/" + $stateParams.activityId).
       then(function(resp) {
         $scope.activity = resp.data;
         console.log(resp.data);
+        
+      }, function(resp) {
+        console.log("Error retrieving data.");
+      });
+
+  //check if joined
+  $http.get("http://floating-peak-63956.herokuapp.com/participants/checkIsJoined/" + $stateParams.activityId + "/" + window.localStorage['username']).
+      then(function(resp) {
+        if(resp.data.length == 0){
+          console.log("nil");
+          $scope.isJoined = false;
+          console.log($scope.isJoined);
+        } else {
+          console.log("yes");
+          $scope.isJoined = true;
+          console.log($scope.isJoined);
+        }
         
       }, function(resp) {
         console.log("Error retrieving data.");
@@ -292,6 +311,50 @@ angular.module('starter.controllers', [])
       });
     })
   };
+
+  $scope.joinActivity = function(){
+    var postObject = new Object();
+    postObject.userId = window.localStorage['username'];
+    postObject.activityId = $stateParams.activityId;
+    console.log(postObject);
+
+    var req = {
+      method: 'POST',
+      url: 'http://floating-peak-63956.herokuapp.com/participants',
+      data: postObject
+    };
+
+    $http(req).success(function(resp) {
+      console.log('Success', resp);
+      // resp.data contains the result
+      $scope.isJoined = true;
+
+    }).error(function(err) {
+      console.error('ERROR', err);
+      var alertPopup = $ionicPopup.alert({
+        title: 'Registration failed!',
+        template: err.error_message
+      });
+    })
+  }
+
+  $scope.unjoinActivity = function(){
+    $http.delete("http://floating-peak-63956.herokuapp.com/participants/checkIsJoined/" + $stateParams.activityId + "/" + window.localStorage['username']).
+      then(function(resp) {
+        if(resp.data.length == 0){
+          console.log("nil");
+          $scope.isJoined = false;
+          console.log($scope.isJoined);
+        } else {
+          console.log("yes");
+          $scope.isJoined = true;
+          console.log($scope.isJoined);
+        }
+      }, function(resp) {
+        console.log("Error retrieving data.");
+      });
+    
+  }
 
 })
 
