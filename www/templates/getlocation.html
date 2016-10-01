@@ -9,6 +9,13 @@
       <br><br>
     </div>
 
+    <div ng-show="lat" class="padding" style="padding-left: 25px; padding-top: 15px; font-weight:400;">
+      <h3>
+        Pick your poison
+      </h3>
+      <p>Choose a category and find activities related to it nearby.</p>
+    </div>
+
     <center>
       <ion-spinner ng-hide="lat" icon="lines"></ion-spinner>
     </center>
@@ -16,29 +23,29 @@
     <div ng-show="lat" class="category-grid">
       <div class="row">
         <div class="col">
-          <button class="button button-block icon-left btn-category">
-            <i class="icon icon ion-ios-basketball-outline"></i>
-            <p>Basketball</p>
-          </button>
-        </div>
-        <div class="col">
-          <button class="button button-block icon-left btn-category">
-            <i class="icon icon ion-ios-football-outline"></i>
-            <p>Football</p>
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <button class="button button-block icon-left btn-category">
+          <button class="button button-block icon-left btn-category" ng-click="continueCycling()">
             <i class = "icon icon ion-android-bicycle"></i>
             <p>Cycling</p>
           </button>
         </div>
         <div class="col">
-          <button class="button button-block icon-left btn-category">
+          <button class="button button-block icon-left btn-category" ng-click="continueRunning()">
             <img src="img/jogging.png" />
             <p>Running</p>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="button button-block icon-left btn-category" ng-click="continueBasketball()">
+            <i class="icon icon ion-ios-basketball-outline"></i>
+            <p>Basketball</p>
+          </button>
+        </div>
+        <div class="col">
+          <button class="button button-block icon-left btn-category" ng-click="continueFootball()">
+            <i class="icon icon ion-ios-football-outline"></i>
+            <p>Football</p>
           </button>
         </div>
       </div>

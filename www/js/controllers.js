@@ -148,7 +148,54 @@ angular.module('starter.controllers', [])
     console.log(err);
   });
 
-  $scope.continueToDash = function (){
+  $scope.continueBasketball = function (){
+
+    window.localStorage['category'] = 'basketball';
+
+    //clear back history stack,
+    //prevent other page from coming back here upon back button press
+    $ionicViewService.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+    });
+
+    //continue to select fav location screen
+    $state.go('tab.dash');
+  };
+
+  $scope.continueFootball = function (){
+
+    window.localStorage['category'] = 'football';
+
+    //clear back history stack,
+    //prevent other page from coming back here upon back button press
+    $ionicViewService.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+    });
+
+    //continue to select fav location screen
+    $state.go('tab.dash');
+  };
+
+  $scope.continueCycling = function (){
+
+    window.localStorage['category'] = 'cycling';
+
+    //clear back history stack,
+    //prevent other page from coming back here upon back button press
+    $ionicViewService.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+    });
+
+    //continue to select fav location screen
+    $state.go('tab.dash');
+  };
+
+  $scope.continueRunning = function (){
+
+    window.localStorage['category'] = 'running';
 
     //clear back history stack,
     //prevent other page from coming back here upon back button press
