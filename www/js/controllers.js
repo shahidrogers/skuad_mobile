@@ -1,12 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $http, $state, $ionicViewService) {
+.controller('LoginCtrl', function($scope, $http, $state, $ionicPopup, $ionicViewService) {
 
   $scope.data = {}
 
   if(window.localStorage['username'] != null){
     //if logged in already, go to categories
-    
+
     //clear back history stack,
     //prevent other page from coming back here upon back button press
     $ionicViewService.nextViewOptions({
@@ -41,6 +41,11 @@ angular.module('starter.controllers', [])
       }, function(resp) {
         //if error
         console.log("Error - " + resp);
+
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login failed!',
+          template: err.error_message
+        });
       });
   };
 
