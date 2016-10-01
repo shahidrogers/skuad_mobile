@@ -61,7 +61,7 @@
 /*----- Activity Card -----*/
 .activity-card {
   background-color: #fff;
-/*  margin-bottom: 10px;*/
+  margin-bottom: 10px;
 }
 .activity-card hr{
   border-color: #aaa;
@@ -72,8 +72,8 @@
 }
 .card-date h4 {
   font-size: 16px;
-  -webkit-transform: rotateX(270deg);
-  transform: rotateX(270deg)
+/*  -webkit-transform: rotateX(270deg);
+  transform: rotateX(270deg);*/
 }
 .card-content {
   float: left;

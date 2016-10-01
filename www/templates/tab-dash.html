@@ -3,9 +3,9 @@
     <div class="box-left-mini">
       <div class="front">
         <div class="activity-list">
-          <div class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/{{activity._id}}">
+          <div class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/{{activity._id}}" item-height="120px">
             <div class="card-date">
-              <h4>{{ activity.booking_at | date: 'dd MMM' }}</h4>
+              <h4>{{ activity.booking_at }}</h4>
             </div>
             <div class="card-content">
               <div class="activity-content">
