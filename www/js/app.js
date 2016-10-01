@@ -80,16 +80,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }
   })
 
-  .state('tab.nearbyLocations', {
-      url: '/nearbyLocations',
-      views: {
-        'tab-nearbyLocations': {
-          templateUrl: 'templates/tab-nearbyLocations.html',
-          controller: 'NearbyLocationsCtrl'
-        }
-      }
-    })
-
   .state('tab.profile', {
     url: '/profile',
     cache: false,
@@ -110,3 +100,5 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   $ionicConfigProvider.tabs.position('bottom');
 
 });
+
+

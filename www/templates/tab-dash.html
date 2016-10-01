@@ -1,12 +1,31 @@
 <ion-view view-title="Activities Near You">
-  <ion-content class="padding">
-    <ion-item collection-repeat="activity in activities" ng-click ="list_click()">
+  <ion-content>
+
+  <div class="box-left-mini">
+    <div class="front">
+      <div collection-repeat="activity in activities" ng-click ="list_click()">
+        <div class="item item-avatar">
+          <img src="avatar.jpg">
+          <h2>{{activity.name}}</h2>
+          <span class="badge badge-dark capitalize">{{activity.category}}</span>
+          <p>{{activity.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="behind">
+      <div id="map" data-tap-disabled="true"></div>
+    </div>
+  </div>
+
+    
+
+    
+
       {{activity.name}}
       {{activity.description}}
       {{activity.category}}
       {{activity.difficulty}}
       {{activity.createdBy}}
-    </ion-item>
   </ion-content>
 </ion-view>
 

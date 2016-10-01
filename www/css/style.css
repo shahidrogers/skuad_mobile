@@ -29,3 +29,33 @@
 .category-grid{
   margin-top: 15px;
 }
+
+.capitalize {
+   text-transform: capitalize;
+}
+
+.scroll {
+    height: 100%;
+}
+ 
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.box-left-mini{
+  width:100%;
+  height:100%;
+}
+
+.front{
+    padding:40px;
+}
+.behind{
+    background-color:grey;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    z-index:-1;
+}
