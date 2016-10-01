@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   }) 
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -77,6 +77,17 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
         controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('tab.activity', {
+    url: '/dash/:activityId',
+    cache: false,
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/activity.html',
+        controller: 'ActivityCtrl'
       }
     }
   })

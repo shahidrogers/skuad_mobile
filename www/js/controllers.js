@@ -210,6 +210,7 @@ angular.module('starter.controllers', [])
      $http.get("http://floating-peak-63956.herokuapp.com/activities/nearby/" + window.localStorage['category'] + '/' + window.localStorage['long'] + '/' + window.localStorage['lat']).
       then(function(resp) {
         $scope.activities = resp.data;
+        console.log(resp.data);
         
       }, function(resp) {
         console.log("Error retrieving data.");
@@ -222,6 +223,21 @@ angular.module('starter.controllers', [])
   $scope.refresh = function(){
     getData();
   };
+})
+
+.controller('ActivityCtrl', function($scope, $state, $stateParams, $http, $window, $ionicHistory) {
+  
+  console.log($stateParams.activityId);
+
+  $http.get("http://floating-peak-63956.herokuapp.com/activities/" + $stateParams.activityId).
+      then(function(resp) {
+        $scope.activity = resp.data;
+        console.log(resp.data);
+        
+      }, function(resp) {
+        console.log("Error retrieving data.");
+      });
+
 })
 
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
