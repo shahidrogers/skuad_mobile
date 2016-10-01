@@ -300,7 +300,9 @@ angular.module('starter.controllers', [])
 
   $http.get("http://floating-peak-63956.herokuapp.com/participants/byUser/" + window.localStorage['username']).
     then(function(resp) {
-      $scope.history = resp.data;
+      if(resp.data != []){
+        $scope.history = resp.data;
+      }
       console.log(resp.data);
       
     }, function(resp) {
