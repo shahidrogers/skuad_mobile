@@ -366,6 +366,7 @@ angular.module('starter.controllers', [])
 
 .controller('HistoryCtrl', function($scope, $http, $state, $window, $ionicHistory) {
   $scope.history = {};
+  $scope.list = [];
 
   $http.get("http://floating-peak-63956.herokuapp.com/participants/byUser/" + window.localStorage['username']).
     then(function(resp) {
@@ -377,12 +378,46 @@ angular.module('starter.controllers', [])
     }, function(resp) {
       console.log("Error retrieving data.");
     });
+
 })
 
-.controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $http, $state, $window, $ionicHistory) {
+.controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $ionicPopup, $http, $state, $window, $ionicHistory) {
   $scope.data = {};
 
+  $scope.submit = function(){
+    var postObject = new Object();
+    postObject.name = $scope.data.name;
+    postObject.description = $scope.data.description;
+    postObject.category = $scope.data.category.toLowerCase();
+    postObject.difficulty = $scope.data.level;
+    postObject.createdBy = window.localStorage['username'];
+    postObject.bookingAt = new Date();
+    postObject.imgURL = 'http://static.asiawebdirect.com/m/kl/portals/kuala-lumpur-ws/homepage/kl-top10s/10-attraction-subang-jaya/allParagraphs/010/top10Set/04/image/800-subang-ria-park.jpg';
+    postObject.loc = {
+      coordinates: [101.5851192, 3.0567333],
+      type: "Point"
+    }
+    postObject.locName = "PJS 7"
+    console.log(postObject);
 
+    var req = {
+      method: 'POST',
+      url: 'http://floating-peak-63956.herokuapp.com/activities',
+      data: postObject
+    };
+
+    $http(req).success(function(resp) {
+      console.log('Success', resp);
+      // resp.data contains the result
+
+    }).error(function(err) {
+      console.error('ERROR', err);
+      var alertPopup = $ionicPopup.alert({
+        title: 'Create activity failed!',
+        template: err.error_message
+      });
+    })
+  }
 })
 
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
