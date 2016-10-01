@@ -1,11 +1,31 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $state) {
+.controller('LoginCtrl', function($scope, $http, $state, $ionicViewService) {
 
   $scope.data = {}
 
   $scope.login = function(){
     console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
+
+    //get latest data for location from API
+    $http.get('http://floating-peak-63956.herokuapp.com/users/' + $scope.data.username).
+      then(function(resp) {
+        console.log(resp);
+        if(resp.data.password == $scope.data.password){
+          //clear back history stack,
+          //prevent other page from coming back here upon back button press
+          $ionicViewService.nextViewOptions({
+              disableAnimate: true,
+              disableBack: true
+          });
+
+          $state.go('getlocation');
+        }
+        
+      }, function(resp) {
+        //if error
+        console.log("Error - " + resp);
+      });
   };
 
   $scope.register = function(){
