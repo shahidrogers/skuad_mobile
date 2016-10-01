@@ -1,9 +1,13 @@
-<ion-view view-title="Activities Near You">
+<ion-view view-title="{{category}}">
+  <ion-nav-buttons side="right">
+    <button class="button icon ion-plus-round" ng-click="createNewActivity()"></button>
+    <button class="button icon ion-refresh" ng-click="refresh()"></button>
+  </ion-nav-buttons>
   <ion-content>
     <div class="box-left-mini">
       <div class="front">
         <div class="activity-list">
-          <ion-item class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/{{activity._id}}" item-height="150px">
+          <ion-item class="activity-card" collection-repeat="activity in activities" href="#/tab/dash/activity/{{activity._id}}" item-height="150px">
             <div class="card-date">
               <h4>{{ activity.booking_at | date:'dd MMM' }}</h4>
             </div>

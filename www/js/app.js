@@ -82,7 +82,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   })
 
   .state('tab.activity', {
-    url: '/dash/:activityId',
+    url: '/dash/activity/:activityId',
     cache: false,
     views: {
       'tab-dash': {

@@ -190,6 +190,8 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $http, $ionicPlatform) {
 
+  $scope.category = window.localStorage['category'].toUpperCase();
+
   var latLng = new google.maps.LatLng(window.localStorage['lat'], window.localStorage['long']);
  
   var mapOptions = {
