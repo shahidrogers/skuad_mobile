@@ -59,21 +59,34 @@
 /*----- End -----*/
 
 /*----- Activity Card -----*/
+.activity-list {
+  padding: 12.5px;
+}
 .activity-card {
   background-color: #fff;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.activity-card .item-content{
+  display: block;
   margin-bottom: 10px;
 }
 .activity-card hr{
-  border-color: #aaa;
+  border-color: #eee;
 }
 .card-date {
+  background-color: #EF4E3A;
   float: left;
+  height: 150px;
   width: 10%;
 }
 .card-date h4 {
-  font-size: 16px;
-/*  -webkit-transform: rotateX(270deg);
-  transform: rotateX(270deg);*/
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  transform: rotate(270deg);
+  margin: 75px 0px;
+  overflow: visible;
 }
 .card-content {
   float: left;
@@ -82,7 +95,7 @@
 }
 .activity-venue-img{
   float: left;
-  width: 45%;
+  width: 40%;
 }
 .activity-venue-img img {
   height: auto;
@@ -91,20 +104,22 @@
 .activity-details {
   float: left;
   padding-left: 10px;
-  width: 55%;
+  width: 60%;
 }
 .activity-details h3 {
-  font-size: 16px;
+  font-size: 28px;
   line-height: normal;
-  margin-bottom: 5px;
+  margin: 0 0 2px;
 }
 .activity-details .badge {
   border: 1px #66CC33 solid;
   border-radius: 3px;
   color: #66CC33;
-  font-size: 8px;
+  display: inline-block;
+  font-size: 12px;
   margin: 0 0 5px;
-  padding: 0px 10px;
+  padding: 2px 14px;
+  position: initial;
   text-transform: uppercase;
 }
 .activity-details p{
@@ -115,15 +130,28 @@
   color: #aaa;
   font-size: 14px;
 }
+.activity-details .activity-location i{
+  margin-left: 4px;
+}
+.activity-details .activity-time i{
+  margin-left: 0.5px;
+}
+.activity-details p.activity-time {
+  margin-bottom: 5px;
+}
 .activity-location i,
 .activity-time i {
   color: #aaa;
-  font-size: 14px;
-  margin-right: 10px;
+  font-size: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 .activity-members .join-team i{
   color: #EF4E3A;
   font-size: 14px;
+}
+.activity-list .item-content{
+  padding: 0px;
 }
 /*----- End -----*/
 
@@ -132,17 +160,27 @@
 }
 
 .scroll {
-    height: 100%;
+  height: 100%;
 }
  
 #map {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .box-left-mini{
+#map-small {
+    width: 100%;
+    height: 20%;
+}
+
+.behind{
+  background-color:grey;
+  position:absolute;
   width:100%;
   height:100%;
+  top:0;
+  z-index:-1;
 }
 
 .front{
