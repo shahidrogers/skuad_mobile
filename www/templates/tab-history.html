@@ -1,5 +1,9 @@
 <ion-view view-title="Activity History">
   <ion-content>
-    
+    	<div class="list" ng-show ="history">
+		  <a class="item" collection-repeat="history in history">
+		    {{history.name}}
+		  </a>
+	</div>
   </ion-content>
 </ion-view>
