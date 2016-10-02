@@ -214,7 +214,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
 .card-date {
   background-color: #444444;
   float: left;
-  width: 20%;
+  width: 16%;
   text-align: center;
   padding: 10px 0 4px;
 }
@@ -255,7 +255,7 @@ src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('AvenirNextLT
   width: 60%;
 }
 .activity-details h3 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: normal;
   margin: 10px 0 2px;
   color: #333;
