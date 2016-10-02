@@ -55,6 +55,19 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       controller: 'RegisterCtrl'
   }) 
 
+   .state('setgoal', {
+      url: '/profile/setgoal',
+      templateUrl: 'templates/setgoal.html',
+      controller: 'SetGoalCtrl'
+  })
+
+   .state('viewgoal', {
+      url: '/profile/viewgoal',
+      templateUrl: 'templates/viewgoal.html',
+      controller: 'ViewGoalCtrl'
+  })
+
+
   .state('getlocation', {
       url: '/getlocation',
       templateUrl: 'templates/getlocation.html',
@@ -123,18 +136,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controller: 'ProfileCtrl'
       }
     }
-  })
-
-  .state('tab.setgoal', {
-      url: '/profile/setgoal',
-      templateUrl: 'templates/setgoal.html',
-      controller: 'SetGoalCtrl'
-  })
-
-  .state('tab.viewgoal', {
-      url: '/profile/viewgoal',
-      templateUrl: 'templates/viewgoal.html',
-      controller: 'ViewGoalCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
