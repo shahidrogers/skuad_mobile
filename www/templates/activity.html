@@ -14,7 +14,7 @@
 		  <p class="activity-host" style="vertical-align: middle; margin-bottom: 0px;">Created by: <span style="color:#4a87ee;">@{{ activity.createdBy }}</span></p>
 		  <p class="activity-desc" style="margin-top: 10px;">{{ activity.description }}</p>
 		</div>
-		<button class="button button-block button-assertive join-btn" ng-click="joinActivity()" style="width: 90%; margin: inherit auto;" ng-hide="isJoined==true" ng-show="isJoined==false">
+		<button class="button button-block button-assertive join-btn" ng-click="joinActivity()" style="width: 90%; margin-bottom: 30px; margin-left: auto; margin-right: auto;" ng-hide="isJoined==true" ng-show="isJoined==false">
 		  Join Activity
 		</button>
 
@@ -40,7 +40,7 @@
 		  </a>
 		</div>
 
-		<div class="item item-input-inset" style="margin-bottom: 30px;">
+		<div class="item item-input-inset last-element">
 	    <label class="item-input-wrapper">
 	      <input type="text" placeholder="Comment" ng-model="data.text">
 	    </label>

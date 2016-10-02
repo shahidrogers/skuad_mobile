@@ -424,3 +424,24 @@ p, body, div, input, textarea, span, label{
   font-family: 'Avenir Next LT Pro Regular' !important;
 }
 /*----- End -----*/
+
+.last-element{
+  margin-bottom: 35px;
+}
+.profile-page .profile-photo-sec{
+  width: 90%; 
+  margin: auto; 
+  margin-top: 30px; 
+  text-align: center;
+}
+.profile-page .profile-photo{
+  width: 40%; 
+  display: inline-block; 
+  border-radius: 800px; 
+  vertical-align: top;
+}
+.profile-page .change-photo{
+  width: 50%; 
+  display: inline-block; 
+  margin-left: 25px;
+}
