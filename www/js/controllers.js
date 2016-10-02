@@ -386,12 +386,18 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $ionicPopup, $http, $state, $window, $ionicHistory) {
+.controller('NewActivityCtrl', function($scope, $cordovaDatePicker, $cordovaContacts, $ionicPopup, $http, $state, $window, $ionicHistory) {
   $scope.data = {};
   $scope.categories = ["Running", "Cycling", "Basketball", "Football"];
   $scope.data.category = $scope.categories[0];
   $scope.levels = ["Beginner", "Intermediate", "Professional"];
   $scope.data.level = $scope.levels[0];
+
+  $scope.invite = function () {
+    $cordovaContacts.pickContact().then(function (contactPicked) {
+      $scope.contact = contactPicked;
+    });
+  }
 
   $scope.submit = function(){
     var postObject = new Object();
