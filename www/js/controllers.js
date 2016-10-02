@@ -439,4 +439,20 @@ angular.module('starter.controllers', [])
     $ionicHistory.clearHistory();
     $state.go('login');
   };
+
+  $scope.setgoal = function (){
+    $state.go('tab.setgoal');
+  };
+
+  $scope.viewgoal = function (){
+    $state.go('tab.viewgoal');
+  };
+})
+
+.controller('SetGoalCtrl', function($scope, $state, $window, $ionicHistory) {
+
+})
+
+.controller('ViewGoalCtrl', function($scope, $state, $window, $ionicHistory) {
+
 });
