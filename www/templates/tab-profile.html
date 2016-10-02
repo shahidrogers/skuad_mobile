@@ -1,10 +1,61 @@
 <ion-view view-title="Your Profile" class="profile-page">
-  <ion-nav-buttons side="right">
-    <button class="button icon ion-plus-round" ng-click="setgoal()"></button>
-    <button class="button icon ion-refresh" ng-click="viewgoal()"></button>
-  </ion-nav-buttons>
   <ion-content scroll="true">
-    <div class="profile-photo-sec">
+    <div class="row">
+      <div class="profile-photo-sec col">
+        <img class="avatar profile-photo" src="https://scontent-kul1-1.xx.fbcdn.net/v/t1.0-9/1012964_10204292727452673_4676625786604600437_n.jpg?oh=af79db2375b33046327e998249f5cb54&oe=587516C0" alt="avatar" width="30%"/>
+        <h3 style="margin-top: 10px;">@{{ data.username }}</h3>
+      </div>
+      <div class="goal-sec col">
+        <div class="progress-wrapper">
+            <div style="position: absolute; top: 50px; left: 72px;">
+              <img style="width: 60px; margin-left: -5px;" src="img/jogging.png" />
+              <div class="progress ng-cloak" ng-style="getStyle()">{{ preciseCurrent || progress.current }}/{{ progress.max }}</div>
+            </div>
+            
+            <round-progress
+                max="progress.max"
+                current="progress.current"
+                color="#45ccce"
+                bgcolor="#eaeaea"
+                radius="100"
+                stroke="10"
+                semi="false"
+                rounded="true"
+                clockwise="true"
+                responsive="false"
+                duration="800"
+                animation="easeInOutQuart"
+                animation-delay="2"
+                on-render="showPreciseCurrent">
+
+                <svg>
+                    <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="5%"  stop-color="green"/>
+                        <stop offset="95%" stop-color="gold"/>
+                    </linearGradient>
+                </svg>
+            </round-progress>
+        </div>
+
+        <!-- <round-progress
+          max="progress.max"
+          current="progress.current"
+          color="#45ccce"
+          bgcolor="#eaeaea"
+          radius="60"
+          stroke="10"
+          semi="false"
+          rounded="true"
+          clockwise="true"
+          responsive="false"
+          duration="800"
+          animation="easeInOutQuart"
+          animation-delay="2">10
+        </round-progress> -->
+
+      </div>
+    </div>
+    <!-- <div class="profile-photo-sec">
       <img class="avatar profile-photo" src="https://scontent-kul1-1.xx.fbcdn.net/v/t1.0-9/1012964_10204292727452673_4676625786604600437_n.jpg?oh=af79db2375b33046327e998249f5cb54&oe=587516C0" alt="avatar" width="30%"/>
       <div class="change-photo">
         <button style="display: inline-block; width: auto; padding: 0px 40px; border-radius: 3px; border: 1px solid #eee; min-height: 40px; margin-top: 25px;" class="button button-full button-stable">
@@ -14,10 +65,7 @@
           Take A Photo
         </button>
       </div>
-    </div>
-    <div class="padding" style="margin-bottom: 30px;">
-      <h3 style="margin-left: 45px;">@{{ data.username }}</h3>
-  	</div>
+    </div> -->
     <div style="margin-bottom: 20px;">
       <ion-list>
         <div class="bar bar-header bar-positive item item-divider" style="height: 38px; padding: 10px 15px;">
@@ -49,16 +97,6 @@
         </a>
       </ion-list>
     </div>
-    <ion-list>
-		  <div class="bar bar-header bar-dark item item-divider" style="height: 38px; padding: 10px 15px;">
-			 Version
-		  </div>
-		  <li class="item">
-	      <b>V1.0 (beta)</b>
-	    </li>
-    </ion-list>
-    <br>
-    <br>
     <br>
     <br>
   </ion-content>

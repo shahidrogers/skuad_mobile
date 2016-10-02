@@ -432,6 +432,7 @@ angular.module('starter.controllers', [])
 
 .controller('ProfileCtrl', function($scope, $state, $window, $ionicHistory) {
   $scope.data = {username: window.localStorage['username']};
+  $scope.progress = {max: 10, current: 3};
 
   $scope.changeFavLocation = function (){
     $state.go('selectfavlocation');
@@ -444,17 +445,5 @@ angular.module('starter.controllers', [])
     $state.go('login');
   };
 
-  $scope.setgoal = function (){
-    $state.go('setgoal');
-  };
 
-  $scope.viewgoal = function (){
-    $state.go('viewgoal');
-  };
 })
-
-
-
-.controller('ViewGoalCtrl', function($scope, $state, $window, $ionicHistory) {
-
-});

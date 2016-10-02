@@ -14,7 +14,7 @@
 		  <p class="activity-host" style="vertical-align: middle; margin-bottom: 0px;">Created by: <span style="color:#4a87ee;">@{{ activity.createdBy }}</span></p>
 		  <p class="activity-desc" style="margin-top: 10px;">{{ activity.description }}</p>
 		</div>
-		<button class="button button-block button-assertive join-btn" ng-click="joinActivity()" style="width: 90%; margin-bottom: 30px; margin-left: auto; margin-right: auto;" ng-hide="isJoined==true" ng-show="isJoined==false">
+		<button class="button button-block button-positive join-btn" ng-click="joinActivity()" style="width: 90%; margin-bottom: 30px; margin-left: auto; margin-right: auto;" ng-hide="isJoined==true" ng-show="isJoined==false">
 		  Join Activity
 		</button>
 
@@ -29,7 +29,7 @@
 		  <a class="item" collection-repeat="comment in comments">
 		  	<img style="width: 20%; display: inline-block; border-radius: 800px;" class="avatar" src="https://scontent-kul1-1.xx.fbcdn.net/v/t1.0-9/1012964_10204292727452673_4676625786604600437_n.jpg?oh=af79db2375b33046327e998249f5cb54&oe=587516C0" alt="avatar" width="30%"/>
 		  	<div style="width: 80%; padding: 10px 20px; display: inline-block; vertical-align: top;">
-		  		<p style="color: #666; font-size: 16px;">{{ comment.userId }}</p>
+		  		<p style="color: #666; font-size: 16px; color: #4a87ee">@{{ comment.userId }}</p>
 		  		<p style="color: #333; font-size: 18px;">{{ comment.comment }}</p>
 		  		<p style="color: #aaa; font-size: 14px;">
 		  			<i class="icon ion-android-calendar" style="color: #aaa; font-size: 15px; margin-right: 5px;"></i>
@@ -40,7 +40,7 @@
 		  </a>
 		</div>
 
-		<div class="item item-input-inset last-element">
+		<div class="item item-input-inset">
 	    <label class="item-input-wrapper">
 	      <input type="text" placeholder="Comment" ng-model="data.text">
 	    </label>
